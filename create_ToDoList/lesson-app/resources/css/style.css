@@ -1,0 +1,95 @@
+.box {
+  max-width: 500px;
+  margin: 12px auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fffaf5;
+  text-align: center;
+}
+
+.box h1 {
+  margin: 24px 0 8px 0;
+  color: #7c2d12;
+  font-size: 20px;
+  border-bottom: none; 
+  line-height: 2;
+}
+
+.box hr {
+  border: 0;
+  border-top: 1px solid #e8c4a8;
+  margin: 20px auto;
+  width: 240px;
+}
+
+.box p {
+  margin: 8px 0 0 0;
+  line-height: 2
+}
+
+.box label{
+  margin: 8px 0 0 0;
+  padding: 10px;
+  line-height: 4
+}
+
+.box ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+.box li {
+  margin: 8px 0;
+}
+
+.todolist_text {  
+  max-width: 200px;
+  margin: 12px auto;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1.5px solid #f0d8bd;
+  text-align: center;
+}
+
+.todolist_text_box {  
+  max-width: 300px;
+  margin: 5px auto;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1.5px solid #f0d8bd;
+  text-align: center;
+}
+
+.to_be_added_later {  
+  max-width: 500px;
+  margin: 5px auto;
+  padding: 10px;
+  border-radius:12px;
+  border: 1.5px solid #f0d6bd;
+  text-align: center;
+  color:gray;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: #e8d5c4;
+  color: #5b4636;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.custom-btn:hover {
+  background: #dbc2ad;
+}
