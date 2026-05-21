@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>create to do list</title>
+    @vite('resources/css/style.css')
+</head>
+<body>
+<section class="box">
+    <h1>Make a to do list</h1>
+    <hr>
+    @if (session('message'))
+        <p>{{session('message')}}</p>
+    @endif
+    @if ($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+    
+    <form id = "form_id" action="/posts" method="POST">
+        @csrf 
+
+        <div>
+            <label for="title">date</label>
+            <input id="title" 
+                type ="number" 
+                maxlength="8"
+                pattern="[0-9]{8}"
+                required
+                name="title" value="{{old('title')}}">
+        </div>
+
+        <div>
+            <label for="body">to do list</label>
+            <textarea id ="body" name="body">{{old('body')}}</textarea>
+        </div>
+
+        <hr>
+    </form>
+
+    <div class="button-group">
+        <button class="custom-btn"><a href="/posts">list</a></button>
+        <button type="submit" class="custom-btn" form="form_id">submit</button>
+    </div>
+</section>    
+</body>
+</html>
