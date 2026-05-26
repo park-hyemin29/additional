@@ -20,24 +20,28 @@
 
     <div class="button-group">
 
-    <a href="/posts/{{$post->id}}/edit" class="custom-btn">
-        edit
-    </a>
+        <a href="/posts" class="custom-btn">
+            list
+        </a>
 
-    <form action="/posts/{{$post->id}}" method="POST">
-        @csrf
-        @method('DELETE')
+        <a href="/posts/{{$post->id}}/edit" class="custom-btn">
+            edit
+        </a>
 
-        <button type="submit" class="custom-btn">
-            delete
-        </button>
-    </form>
+        <form action="/posts/{{$post->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="custom-btn">delete</button>
+        </form>
 
-    <a href="/posts" class="custom-btn">
-        list
-    </a>
+        <form action="{{ route('posts.complete', $post->id) }}" method="POST">
+        <!--<form action="/posts/completed/{{$post->id}}" method="POST">-->
+            @csrf
+            @method('PATCH')
+            <button type="submit" class="custom-btn">completed</button>
+        </form>
 
-</div>
+    </div>
 <section>    
 </body>
 </html>

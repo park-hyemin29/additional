@@ -9,8 +9,6 @@
 <section class="box">
     <h1>edit to do list</h1>
     <hr>
-    <button class="custom-btn"><a href="/posts">list</a></button>
-    <hr>
 
     @if ($errors->any())
         <ul>
@@ -37,11 +35,12 @@
         <div>
             <label for = "body">to do list</label>
             <textarea id = "body" name="body">{{old('body', $post -> body)}}</textarea>
-        <div>
+        </div>
+        <br>
 
-        <button class="custom-btn"; type = "submit">update</button>
+        <button class="custom-btn"; type = "submit">update</button>    
+        <button class="custom-btn"><a href="/posts">list</a></button>
     </form>
-</div>
 </section>
 </body>
 </html>
