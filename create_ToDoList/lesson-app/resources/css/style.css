@@ -148,3 +148,21 @@
 .nav-menu li a:hover {
     background-color: #c9d3ed;
 }
+
+.index_title_category{
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  gap: 10px;             
+}
+
+.index_title_category p{
+  margin: 0;
+  color: #4a69b1; 
+}
+
+.category_box{
+  font-style: oblique;
+  font-size: 14px;
+  font-weight: bold;
+}

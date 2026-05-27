@@ -13,34 +13,32 @@
 
     <h1>{{$post->title}}</h1>
     <hr>
+    <p class="category_box">
+        category : {{ $post->category ? $post->category->name : 'categoryなし' }}
+    </p>
     <div class="todolist_text">
         {{$post->body}}
     </div>
     <hr>
 
     <div class="button-group">
-
         <a href="/posts" class="custom-btn">
             list
         </a>
-
         <a href="/posts/{{$post->id}}/edit" class="custom-btn">
             edit
         </a>
-
         <form action="/posts/{{$post->id}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="custom-btn">delete</button>
         </form>
-
         <form action="{{ route('posts.complete', $post->id) }}" method="POST">
         <!--<form action="/posts/completed/{{$post->id}}" method="POST">-->
             @csrf
             @method('PATCH')
             <button type="submit" class="custom-btn">completed</button>
         </form>
-
     </div>
 <section>    
 </body>

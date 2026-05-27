@@ -23,6 +23,7 @@
     <table class="table" style="margin-left: auto; margin-right: auto; color:gray;">
         <thead>
             <tr>
+                <th>category</th>
                 <th>title</th>
                 <th>date</th>
                 <th>manage</th> </tr>
@@ -30,6 +31,9 @@
         <tbody>
             @forelse($completedTodos as $post)
                 <tr>
+                    <td>
+                        <span class="badge">{{ $post->category ? $post->category->name : 'categoryなし' }}</span>
+                    </td>
                     <td>
                         <a href="/posts/{{ $post->id }}">
                             <s>{{ $post->title }}</s>
@@ -46,7 +50,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3" style="text-align: center;">No list of completions</td>
+                    <td colspan="4" style="text-align: center;">No list of completions</td>
                 </tr>
             @endforelse
         </tbody>

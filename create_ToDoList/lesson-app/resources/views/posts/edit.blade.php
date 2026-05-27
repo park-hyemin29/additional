@@ -23,6 +23,15 @@
         @method('PUT')
 
         <div>
+        <label for="category_id">modify category</label>
+        <select name="category_id" id="category_id" required>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+        <br>
             <label for = "title">date</label>
             <input id="title" 
                 type ="number" 

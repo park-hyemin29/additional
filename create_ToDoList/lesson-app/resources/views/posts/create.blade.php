@@ -24,6 +24,14 @@
         @csrf 
 
         <div>
+            <label for="category_id">category</label>
+            <select name="category_id" id="category_id" required>
+                <option value="">-- select category --</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <br>
             <label for="title">date</label>
             <input id="title" 
                 type ="number" 
