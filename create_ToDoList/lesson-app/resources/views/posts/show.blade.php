@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{$post->title}}</title>
-    @vite('resources/css/style.css')
+    @vite(['resources/css/style.css'])
 </head>
 <body>
 <section class="box">
@@ -16,7 +16,7 @@
     <p class="category_box">
         category : {{ $post->category ? $post->category->name : 'categoryなし' }}
     </p>
-    <div class="todolist_text">
+    <div class="todolist_text" style="border-radius: 12px; border: 1.5px solid #c4ccdf; max-width:200px;">
         {{$post->body}}
     </div>
     <hr>

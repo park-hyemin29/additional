@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>edit to do list</title>
-    @vite('resources/css/style.css')
+    @vite(['resources/css/style.css'])
 </head>
 <body>
 <section class="box">
@@ -33,11 +33,7 @@
         </select>
         <br>
             <label for = "title">date</label>
-            <input id="title" 
-                type ="number" 
-                maxlength="8"
-                pattern="[0-9]{8}"
-                required
+            <input id="title" required
                 name="title" value="{{old('title')}}">
         </div>
 

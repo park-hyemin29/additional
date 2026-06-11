@@ -7,28 +7,38 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /*
-    public function index(){
-        $posts = Post::latest()->get();
-        return view('posts.index', compact('posts'));
-    }
-      
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::where('is_completed', false)->latest()->get();
-        return view('posts.index', compact('posts'));
-    }
-    */
+        $keyword = $request->query('keyword');
 
-    public function index()
-    {
-        $posts = Post::with('category', 'replies')
+        $posts = Post::with(['category', 'replies'])
                     ->where('is_completed', false)
-                    ->whereNull('parent_id') 
+                    ->whereNull('parent_id')
+                    ->when($keyword, function ($query, $keyword) {
+                        $query->where('body', 'like', '%' . $keyword . '%');
+                    })
                     ->latest()
-                    ->get();
+                    ->paginate(3);
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'keyword'));
+    }
+
+    public function storeSubTask(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => ['required', 'max:255'],
+            'parent_id' => ['required', 'exists:posts,id'], 
+            'category_id' => ['nullable', 'exists:categories,id'],
+        ]);
+
+        $post = new Post();
+        $post->title = $validated['title'];
+        $post->body = $validated['title'];
+        $post->parent_id = $validated['parent_id'];   
+        $post->category_id = $validated['category_id']; 
+        $post->save();
+
+        return redirect()->route('posts.index')->with('message', 'save sub task');
     }
 
     public function complete(Post $post)

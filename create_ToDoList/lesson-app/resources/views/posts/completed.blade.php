@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>To do list</title>
-    @vite('resources/css/style.css')
+    @vite(['resources/css/style.css'])
 </head>
 <body>
 <section class="box">
